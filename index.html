@@ -19,7 +19,6 @@
     }
 
     * { box-sizing: border-box; }
-
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
@@ -27,21 +26,72 @@
       color: var(--text);
       padding: 24px 16px 40px;
     }
-
-    .wrap {
-      max-width: 1180px;
-      margin: 0 auto;
-    }
-
+    .wrap { max-width: 1180px; margin: 0 auto; }
     h1 {
       margin: 0 0 20px;
       font-size: clamp(42px, 7vw, 84px);
       line-height: 0.95;
-      font-weight: 500;
       color: #20242a;
       letter-spacing: 0.5px;
     }
-
+    .hidden { display: none !important; }
+    .start-screen {
+      max-width: 860px;
+      margin: 40px auto 0;
+      background: #fff;
+      border: 2px solid #d1d5db;
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.06);
+    }
+    .start-title {
+      font-size: clamp(28px, 3vw, 42px);
+      margin: 0 0 12px;
+      font-weight: 700;
+    }
+    .start-text {
+      font-size: clamp(18px, 2vw, 24px);
+      color: var(--muted);
+      margin: 0 0 24px;
+      line-height: 1.45;
+    }
+    .level-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .level-btn {
+      border: 0;
+      border-radius: 18px;
+      padding: 22px 18px;
+      font-size: 24px;
+      font-weight: 700;
+      cursor: pointer;
+      background: #111827;
+      color: #fff;
+    }
+    .level-btn.secondary {
+      background: #e5e7eb;
+      color: #111827;
+    }
+    .level-note {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+    .back-row {
+      display: flex;
+      justify-content: flex-start;
+      margin-bottom: 18px;
+    }
+    .back-btn {
+      background: transparent;
+      border: 2px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 10px 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
     .intro {
       font-size: clamp(20px, 2.5vw, 34px);
       line-height: 1.35;
@@ -50,7 +100,6 @@
       margin-bottom: 26px;
       font-weight: 600;
     }
-
     .top {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -58,45 +107,29 @@
       align-items: start;
       margin-bottom: 26px;
     }
-
     .clues {
       font-size: clamp(22px, 2.4vw, 34px);
       line-height: 1.55;
       color: #171717;
       font-weight: 500;
     }
-
-    .clues div {
-      margin-bottom: 2px;
-    }
-
+    .clues div { margin-bottom: 2px; }
     .board-wrap {
       overflow-x: auto;
       padding-bottom: 8px;
     }
-
     .board {
       display: grid;
-      grid-template-columns: repeat(16, 68px);
-      grid-template-rows: repeat(9, 68px);
       gap: 0;
       width: max-content;
       margin: 0 auto;
-      position: relative;
     }
-
-    .cell,
-    .block,
-    .void {
+    .cell, .block, .void {
       width: 68px;
       height: 68px;
       position: relative;
     }
-
-    .void {
-      background: transparent;
-    }
-
+    .void { background: transparent; }
     .block {
       background: var(--black);
       border: 2px solid var(--line);
@@ -107,16 +140,11 @@
       font-size: 28px;
       font-weight: 700;
     }
-
     .cell {
       border: 2px solid var(--line);
       background: var(--cell);
     }
-
-    .cell.shaded {
-      background: var(--shade);
-    }
-
+    .cell.shaded { background: var(--shade); }
     .mini-number {
       position: absolute;
       top: 4px;
@@ -128,7 +156,6 @@
       z-index: 2;
       pointer-events: none;
     }
-
     .cell input {
       position: absolute;
       inset: 0;
@@ -145,69 +172,22 @@
       padding-top: 8px;
       caret-color: var(--accent);
     }
-
     .cell input:focus {
       background: rgba(59, 130, 246, 0.08);
       box-shadow: inset 0 0 0 3px rgba(59, 130, 246, 0.18);
     }
-
-    .toolbar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin: 26px 0 12px;
-      justify-content: center;
-    }
-
-    button {
-      border: 0;
-      background: #111827;
-      color: white;
-      font-size: 18px;
-      font-weight: 700;
-      padding: 14px 18px;
-      border-radius: 14px;
-      cursor: pointer;
-    }
-
-    button.secondary {
-      background: #e5e7eb;
-      color: #111827;
-    }
-
-    .feedback {
-      text-align: center;
-      min-height: 30px;
-      font-size: 18px;
-      font-weight: 700;
-      margin-top: 8px;
-    }
-
-    .feedback.good { color: var(--good); }
-    .feedback.bad { color: var(--bad); }
-
-    .solution-section {
-      max-width: 980px;
-      margin: 28px auto 0;
-      background: rgba(255, 255, 255, 0.75);
+    .solution {
+      margin-top: 30px;
+      background: #fff;
       border: 2px solid #d1d5db;
       border-radius: 18px;
       padding: 18px;
     }
-
-    .solution-title {
-      font-size: 24px;
-      font-weight: 700;
-      margin: 0 0 14px;
-      color: #111827;
-    }
-
     .solution-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 14px;
     }
-
     .field label {
       display: block;
       font-size: 16px;
@@ -215,7 +195,6 @@
       margin-bottom: 8px;
       color: #374151;
     }
-
     .field input {
       width: 100%;
       border: 2px solid #cbd5e1;
@@ -226,473 +205,480 @@
       background: #fff;
       color: #111827;
     }
-
     .field input:focus {
       border-color: #60a5fa;
       box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.15);
     }
-
-    .legend {
-      max-width: 980px;
-      margin: 14px auto 0;
-      font-size: 16px;
-      color: #4b5563;
-      text-align: center;
-      line-height: 1.45;
+    .toolbar {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 20px;
     }
+    button.action {
+      padding: 14px 18px;
+      border-radius: 12px;
+      border: 0;
+      font-weight: 700;
+      background: #111827;
+      color: #fff;
+      cursor: pointer;
+    }
+    button.action.secondary {
+      background: #e5e7eb;
+      color: #111827;
+    }
+    button.action:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+    .feedback {
+      text-align: center;
+      margin-top: 10px;
+      font-weight: 700;
+      min-height: 24px;
+    }
+    .feedback.good { color: var(--good); }
+    .feedback.bad { color: var(--bad); }
 
     @media (max-width: 900px) {
-      .top {
-        grid-template-columns: 1fr;
-        gap: 6px;
-      }
-
-      .board {
-        grid-template-columns: repeat(16, 52px);
-        grid-template-rows: repeat(9, 52px);
-      }
-
-      .cell,
-      .block,
-      .void {
-        width: 52px;
-        height: 52px;
-      }
-
-      .cell input {
-        font-size: 28px;
-      }
-
-      .block {
-        font-size: 24px;
-      }
-
-      .mini-number {
-        font-size: 13px;
-        top: 3px;
-        left: 4px;
-      }
-
-      .solution-grid {
-        grid-template-columns: 1fr;
-      }
+      .level-buttons, .solution-grid, .top { grid-template-columns: 1fr; }
+      .cell, .block, .void { width: 52px; height: 52px; }
+      .cell input { font-size: 28px; }
+      .block { font-size: 24px; }
+      .mini-number { font-size: 13px; top: 3px; left: 4px; }
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <h1>HV1 - Filippine</h1>
+<div class="wrap">
+  <h1>HV1 - Filippine</h1>
 
-    <div class="intro">
-      Gebruik de woordjes van Source A,B,E (Chapitre 5). Vul steeds het Franse woord in dat past bij de omschrijving.
+  <div id="startScreen" class="start-screen">
+    <h2 class="start-title">Kies je niveau</h2>
+    <p class="start-text">Kies hieronder met welke versie je wilt starten.</p>
+    <div class="level-buttons">
+      <button id="easyBtn" class="level-btn">Makkelijk</button>
+      <button id="hardBtn" class="level-btn secondary">Iets moeilijker</button>
+    </div>
+    <div class="level-note">Beide versies staan klaar.</div>
+  </div>
+
+  <div id="exerciseScreen" class="hidden">
+    <div class="back-row">
+      <button id="backBtn" class="back-btn">← Terug naar beginscherm</button>
     </div>
 
+    <div id="introText" class="intro"></div>
+
     <div class="top">
-      <div class="clues">
-        <div>1 warme vakantiemaand</div>
-        <div>2 plek waar je kunt zwemmen</div>
-        <div>3 tussen zwart en wit in</div>
-        <div>4 iemand die veel mensen kennen</div>
-        <div>5 zoon van je oom en/of tante</div>
-      </div>
-      <div class="clues">
-        <div>6 het eerste deel van de dag</div>
-        <div>7 beter dan de rest</div>
-        <div>8 gezellig met iemand praten</div>
-        <div>9 zo bijzonder dat je het bijna niet gelooft</div>
-      </div>
+      <div id="cluesLeft" class="clues"></div>
+      <div id="cluesRight" class="clues"></div>
     </div>
 
     <div class="board-wrap">
       <div id="board" class="board"></div>
     </div>
 
-    
-
-    <div id="feedback" class="feedback"></div>
-
-    <div class="solution-section">
-      <div class="solution-title">Extra vraag</div>
+    <div class="solution">
+      <p><b>Extra vraag</b></p>
       <div class="solution-grid">
         <div class="field">
-          <label for="secretWord">Welk woord komt er van boven naar beneden uit?</label>
-          <input id="secretWord" type="text" autocomplete="off" spellcheck="false" placeholder="Vul het Franse woord in" />
+          <label id="secretWordLabel" for="secretWord"></label>
+          <input id="secretWord" placeholder="Frans woord" />
         </div>
         <div class="field">
-          <label for="secretMeaning">Wat betekent dit woord?</label>
-          <input id="secretMeaning" type="text" autocomplete="off" spellcheck="false" placeholder="" />
+          <label id="secretMeaningLabel" for="secretMeaning"></label>
+          <input id="secretMeaning" placeholder="" />
         </div>
+      </div>
+      <div class="toolbar">
+        <button id="checkBtn" class="action" disabled>Controleer</button>
+        <button id="resetBtn" class="action secondary">Opnieuw</button>
       </div>
     </div>
 
-    <div class="toolbar">
-      <button id="checkBtn" type="button">Controleer</button>
-      <button id="resetBtn" class="secondary" type="button">Opnieuw</button>
-    </div>
-
-    <div class="legend">
-      Typ een letter in een vakje. Staat er een klein getal in dat vakje? Dan wordt dezelfde letter automatisch ingevuld op alle andere plekken met datzelfde getal.
-    </div>
+    <div id="feedback" class="feedback"></div>
   </div>
+</div>
 
-  <script>
-    const layout = [
-      [null, null, null, null, null, { type: 'block', label: '1' }, { type: 'cell', shaded: true }, { type: 'cell', number: 14 }, { type: 'cell' }, { type: 'cell', number: 26 }, null, null, null, null, null, null],
-      [null, null, null, null, null, { type: 'block', label: '2' }, { type: 'cell', shaded: true }, { type: 'cell', number: 9 }, { type: 'cell', number: 15 }, { type: 'cell', number: 2 }, { type: 'cell', number: 9 }, { type: 'cell', number: 19 }, { type: 'cell' }, null, null, null],
-      [null, null, null, null, { type: 'block', label: '3' }, { type: 'cell' }, { type: 'cell', shaded: true }, { type: 'cell', number: 9 }, { type: 'cell', number: 15 }, null, null, null, null, null, null, null],
-      [null, null, null, { type: 'block', label: '4' }, { type: 'cell', number: 2 }, { type: 'cell' }, { type: 'cell', number: 27 }, { type: 'cell', shaded: true }, { type: 'cell', number: 28 }, { type: 'cell', number: 16 }, { type: 'cell' }, null, null, null, null, null],
-      [null, null, null, { type: 'block', label: '5' }, { type: 'cell', number: 2 }, { type: 'cell', number: 14 }, { type: 'cell', number: 21 }, { type: 'cell', shaded: true }, { type: 'cell', number: 9 }, { type: 'cell', number: 19 }, null, null, null, null, null, null],
-      [null, null, null, null, null, { type: 'block', label: '6' }, { type: 'cell', shaded: true }, { type: 'cell' }, { type: 'cell', number: 26 }, { type: 'cell', number: 9 }, { type: 'cell', number: 19 }, null, null, null, null, null],
-      [null, null, null, { type: 'block', label: '7' }, { type: 'cell' }, { type: 'cell' }, { type: 'cell', shaded: true }, { type: 'cell', number: 27 }, { type: 'cell', number: 27 }, { type: 'cell' }, { type: 'cell', number: 21 }, { type: 'cell', number: 16 }, null, null, null, null],
-      [{ type: 'block', label: '8' }, { type: 'cell', number: 28 }, { type: 'cell' }, { type: 'cell' }, { type: 'cell' }, { type: 'cell', number: 16 }, { type: 'cell', shaded: true }, { type: 'cell' }, { type: 'cell', number: 16 }, null, null, null, null, null, null, null],
-      [null, null, null, null, null, { type: 'block', label: '9' }, { type: 'cell', shaded: true }, { type: 'cell', number: 19 }, { type: 'cell', number: 2 }, { type: 'cell', number: 16 }, { type: 'cell', number: 14 }, { type: 'cell' }, { type: 'cell' }, { type: 'cell', number: 28 }, { type: 'cell', number: 27 }, { type: 'cell' }]
-    ];
+<script>
+const easyData = {
+  intro: 'Gebruik de woordjes van Source A,B,E (Chapitre 5). Vul steeds het Franse woord in dat past bij de omschrijving.',
+  cluesLeft: [
+    '1 warme vakantiemaand',
+    '2 plek waar je kunt zwemmen',
+    '3 tussen zwart en wit in',
+    '4 iemand die veel mensen kennen',
+    '5 zoon van je oom en/of tante'
+  ],
+  cluesRight: [
+    '6 het eerste deel van de dag',
+    '7 beter dan de rest',
+    '8 gezellig met iemand praten',
+    '9 zo bijzonder dat je het bijna niet gelooft'
+  ],
+  layout: [
+    [null,null,null,null,null,{type:'block',label:'1'},{type:'cell',shaded:true},{type:'cell',number:14},{type:'cell'},{type:'cell',number:26},null,null,null,null,null,null],
+    [null,null,null,null,null,{type:'block',label:'2'},{type:'cell',shaded:true},{type:'cell',number:9},{type:'cell',number:15},{type:'cell',number:2},{type:'cell',number:9},{type:'cell',number:19},{type:'cell'},null,null,null],
+    [null,null,null,null,{type:'block',label:'3'},{type:'cell'},{type:'cell',shaded:true},{type:'cell',number:9},{type:'cell',number:15},null,null,null,null,null,null,null],
+    [null,null,null,{type:'block',label:'4'},{type:'cell',number:2},{type:'cell'},{type:'cell',number:27},{type:'cell',shaded:true},{type:'cell',number:28},{type:'cell',number:16},{type:'cell'},null,null,null,null,null],
+    [null,null,null,{type:'block',label:'5'},{type:'cell',number:2},{type:'cell',number:14},{type:'cell',number:21},{type:'cell',shaded:true},{type:'cell',number:9},{type:'cell',number:19},null,null,null,null,null,null],
+    [null,null,null,null,null,{type:'block',label:'6'},{type:'cell',shaded:true},{type:'cell'},{type:'cell',number:26},{type:'cell',number:9},{type:'cell',number:19},null,null,null,null,null],
+    [null,null,null,{type:'block',label:'7'},{type:'cell'},{type:'cell'},{type:'cell',shaded:true},{type:'cell',number:27},{type:'cell',number:27},{type:'cell'},{type:'cell',number:21},{type:'cell',number:16},null,null,null,null],
+    [{type:'block',label:'8'},{type:'cell',number:28},{type:'cell'},{type:'cell'},{type:'cell'},{type:'cell',number:16},{type:'cell',shaded:true},{type:'cell'},{type:'cell',number:16},null,null,null,null,null,null,null],
+    [null,null,null,null,null,{type:'block',label:'9'},{type:'cell',shaded:true},{type:'cell',number:19},{type:'cell',number:2},{type:'cell',number:16},{type:'cell',number:14},{type:'cell'},{type:'cell'},{type:'cell',number:28},{type:'cell',number:27},{type:'cell'}]
+  ],
+  solutions: {1:'août',2:'piscine',3:'gris',4:'célèbre',5:'cousin',6:'matin',7:'meilleur',8:'bavarder',9:'incroyable'},
+  placements: {1:{row:0,col:6},2:{row:1,col:6},3:{row:2,col:5},4:{row:3,col:4},5:{row:4,col:4},6:{row:5,col:6},7:{row:6,col:4},8:{row:7,col:1},9:{row:8,col:6}},
+  secretWordLabel: 'Welk woord komt er van boven naar beneden uit?',
+  secretMeaningLabel: 'Wat betekent dit woord?',
+  secretWordAnswers: ['après midi','apres midi'],
+  secretMeaningAnswers: ['de middag','middag']
+};
 
-    const solutions = {
-      1: 'août',
-      2: 'piscine',
-      3: 'gris',
-      4: 'célèbre',
-      5: 'cousin',
-      6: 'matin',
-      7: 'meilleur',
-      8: 'bavarder',
-      9: 'incroyable'
-    };
+const hardData = {
+  intro: 'Vul steeds het Franse woord in dat past bij de omschrijving.',
+  cluesLeft: [
+    '1 eerste maand van het jaar',
+    '2 groeit op je hoofd',
+    '3 vragen naar de reden',
+    '4 laatste deel van een dag',
+    '5 maand van dierendag',
+    '6 niet alleen, maar... ',
+    '7 blauw en geel maakt samen'
+  ],
+  cluesRight: [
+    '8 als iets er niet is',
+    '9 meisje uit hetzelfde gezin',
+    '10 iemand vragen om te komen',
+    '11 maand vlak voor de zomervakantie',
+    '12 deel van de dag na de lunch',
+    '13 als iets veel geld kost'
+  ],
+  layout: [
+    [null,null,null,null,null,null,null,{type:'block',label:'1'},{type:'cell',number:16},{type:'cell',shaded:true},{type:'cell',number:2},{type:'cell',number:14},{type:'cell',number:3},{type:'cell'},{type:'cell',number:17}],
+    [null,null,null,null,{type:'block',label:'2'},{type:'cell',number:21},{type:'cell',number:25},{type:'cell'},{type:'cell',shaded:true},{type:'cell'},{type:'cell',number:9},{type:'cell'},null,null,null],
+    [null,{type:'block',label:'3'},{type:'cell',number:19},{type:'cell',number:29},{type:'cell',number:9},{type:'cell',number:17},{type:'cell'},{type:'cell',number:9},{type:'cell',shaded:true},{type:'cell',number:3},null,null,null,null,null],
+    [null,null,null,null,null,{type:'block',label:'4'},{type:'cell',number:24},{type:'cell',number:29},{type:'cell',shaded:true},{type:'cell',number:17},null,null,null,null,null],
+    [null,null,{type:'block',label:'5'},{type:'cell',number:29},{type:'cell',number:21},{type:'cell',number:8},{type:'cell',number:29},{type:'cell'},{type:'cell',shaded:true},{type:'cell'},null,null,null,null,null],
+    [null,null,{type:'block',label:'6'},{type:'cell'},{type:'cell',number:2},{type:'cell',number:24},{type:'cell'},{type:'cell',number:13},{type:'cell',shaded:true},{type:'cell'},{type:'cell'},null,null,null,null],
+    [null,null,null,null,null,null,{type:'block',label:'7'},{type:'cell',number:14},{type:'cell',shaded:true},{type:'cell',number:17},{type:'cell',number:8},null,null,null,null],
+    [null,null,null,null,{type:'block',label:'8'},{type:'cell',number:24},{type:'cell'},{type:'cell',number:2},{type:'cell',shaded:true},null,null,null,null,null,null],
+    [null,null,null,null,null,null,{type:'block',label:'9'},{type:'cell',number:24},{type:'cell',shaded:true},{type:'cell'},{type:'cell',number:9},{type:'cell',number:17},null,null,null],
+    [null,null,null,null,{type:'block',label:'10'},{type:'cell',number:3},{type:'cell',number:2},{type:'cell',number:14},{type:'cell',shaded:true},{type:'cell',number:8},{type:'cell'},{type:'cell',number:17},null,null,null],
+    [null,null,null,null,{type:'block',label:'11'},{type:'cell',number:16},{type:'cell',number:9},{type:'cell',number:3},{type:'cell',shaded:true},null,null,null,null,null,null],
+    [{type:'block',label:'12'},{type:'cell'},{type:'cell',number:19},{type:'cell',number:17},{type:'cell'},{type:'cell',number:24},{type:'cell',number:13},{type:'cell',number:3},{type:'cell',shaded:true},{type:'cell',number:3},null,null,null,null,null],
+    [null,null,null,null,null,null,{type:'block',label:'13'},{type:'cell',number:21},{type:'cell',number:25},{type:'cell',shaded:true},{type:'cell',number:17},null,null,null,null]
+  ],
+  solutions: {
+    1:'janvier',
+    2:'cheveux',
+    3:'pourquoi',
+    4:'soir',
+    5:'octobre',
+    6:'ensemble',
+    7:'vert',
+    8:'sans',
+    9:'soeur',
+    10:'inviter',
+    11:'juin',
+    12:'aprèsmidi',
+    13:'cher'
+  },
+  placements: {
+    1:{row:0,col:8},
+    2:{row:1,col:5},
+    3:{row:2,col:2},
+    4:{row:3,col:6},
+    5:{row:4,col:3},
+    6:{row:5,col:3},
+    7:{row:6,col:7},
+    8:{row:7,col:5},
+    9:{row:8,col:7},
+    10:{row:9,col:5},
+    11:{row:10,col:5},
+    12:{row:11,col:1},
+    13:{row:12,col:7}
+  },
+  secretWordLabel: 'Welk woord vormen de donkergrijze vakjes?',
+  secretMeaningLabel: 'Wat betekent dit woord?',
+  secretWordAnswers: ['avoir besoin de'],
+  secretMeaningAnswers: ['nodig hebben']
+};
 
-    const placements = {
-      1: { row: 0, col: 6 },
-      2: { row: 1, col: 6 },
-      3: { row: 2, col: 5 },
-      4: { row: 3, col: 4 },
-      5: { row: 4, col: 4 },
-      6: { row: 5, col: 6 },
-      7: { row: 6, col: 4 },
-      8: { row: 7, col: 1 },
-      9: { row: 8, col: 6 }
-    };
+let currentData = easyData;
+const startScreen = document.getElementById('startScreen');
+const exerciseScreen = document.getElementById('exerciseScreen');
+const board = document.getElementById('board');
+const introText = document.getElementById('introText');
+const cluesLeft = document.getElementById('cluesLeft');
+const cluesRight = document.getElementById('cluesRight');
+const secretWordLabel = document.getElementById('secretWordLabel');
+const secretMeaningLabel = document.getElementById('secretMeaningLabel');
+const checkBtn = document.getElementById('checkBtn');
+const resetBtn = document.getElementById('resetBtn');
+const secretWord = document.getElementById('secretWord');
+const secretMeaning = document.getElementById('secretMeaning');
+const feedback = document.getElementById('feedback');
+const inputs = [];
+const numberGroups = new Map();
 
-    const board = document.getElementById('board');
-    const feedback = document.getElementById('feedback');
-    const secretWordInput = document.getElementById('secretWord');
-    const secretMeaningInput = document.getElementById('secretMeaning');
-    const numberGroups = new Map();
-    const allInputs = [];
-
-    function normalizeLetter(value) {
-      return String(value)
-        .toLowerCase()
-        .replace(/[^a-zàâäçéèêëîïôöùûüÿœ]/gi, '')
-        .slice(0, 1);
+function normalizeLetter(value) {
+  return String(value).toLowerCase().replace(/[^a-zàâäçéèêëîïôöùûüÿœ-]/gi, '').slice(0, 1);
+}
+function normalizeText(value) {
+  return String(value).toLowerCase().trim().replace(/[’']/g, "'").replace(/-/g, ' ').replace(/\s+/g, ' ');
+}
+function getNextInput(current) {
+  const index = inputs.indexOf(current);
+  return index >= 0 ? inputs[index + 1] || null : null;
+}
+function getPreviousInput(current) {
+  const index = inputs.indexOf(current);
+  return index > 0 ? inputs[index - 1] : null;
+}
+function clearFeedback() {
+  feedback.textContent = '';
+  feedback.className = 'feedback';
+}
+function syncNumberGroup(number, value, sourceInput) {
+  if (!number) return;
+  const group = numberGroups.get(String(number)) || [];
+  group.forEach(function(other) {
+    if (other !== sourceInput) other.value = value;
+  });
+}
+function updateState() {
+  const allFilled = inputs.length > 0 && inputs.every(function(i) { return i.value !== ''; });
+  const extraFilled = secretWord.value.trim() !== '' && secretMeaning.value.trim() !== '';
+  checkBtn.disabled = !(allFilled && extraFilled);
+}
+function handleInput(e) {
+  const input = e.target;
+  const value = normalizeLetter(input.value);
+  input.value = value;
+  if (input.dataset.number) syncNumberGroup(input.dataset.number, value, input);
+  clearFeedback();
+  updateState();
+  if (value) {
+    const next = getNextInput(input);
+    if (next) {
+      next.focus();
+      next.select();
     }
-
-    function normalizeText(value) {
-      return String(value)
-        .toLowerCase()
-        .trim()
-        .replace(/[’']/g, "'")
-        .replace(/\s+/g, ' ');
-    }
-
-    function isCorrectSecretWord(value) {
-      const normalized = normalizeText(value)
-        .replace(/-/g, ' ')
-        .replace(/\s+/g, ' ');
-
-      return normalized === 'après midi' || normalized === 'apres midi';
-    }
-
-    function isCorrectSecretMeaning(value) {
-      const normalized = normalizeText(value);
-      return normalized === 'de middag' || normalized === 'middag';
-    }
-
-    function getNextInput(currentInput) {
-      const currentIndex = allInputs.indexOf(currentInput);
-      if (currentIndex === -1) return null;
-      return allInputs[currentIndex + 1] || null;
-    }
-
-    function getPreviousInput(currentInput) {
-      const currentIndex = allInputs.indexOf(currentInput);
-      if (currentIndex <= 0) return null;
-      return allInputs[currentIndex - 1] || null;
-    }
-
-    function clearFeedback() {
-      feedback.textContent = '';
-      feedback.className = 'feedback';
-    }
-
-    function syncNumberGroup(number, value, sourceInput) {
-      if (!number) return;
-      const group = numberGroups.get(String(number)) || [];
-      group.forEach((other) => {
-        if (other !== sourceInput) {
-          other.value = value;
-        }
-      });
-    }
-
-    function handleInput(event) {
-      const input = event.target;
-      const value = normalizeLetter(input.value);
-      input.value = value;
-
-      if (input.dataset.number) {
-        syncNumberGroup(input.dataset.number, value, input);
-      }
-
-      if (value) {
-        const nextInput = getNextInput(input);
-        if (nextInput) {
-          nextInput.focus();
-          nextInput.select();
-        }
-      }
-
+  }
+}
+function handleKeydown(e) {
+  const input = e.target;
+  if (e.key === 'Backspace') {
+    if (input.value) {
+      input.value = '';
+      if (input.dataset.number) syncNumberGroup(input.dataset.number, '', input);
       clearFeedback();
+      updateState();
+      e.preventDefault();
+      return;
     }
-
-    function handleKeydown(event) {
-      const input = event.target;
-
-      if (event.key === 'Backspace') {
-        if (input.value) {
-          input.value = '';
-          if (input.dataset.number) {
-            syncNumberGroup(input.dataset.number, '', input);
-          }
-          clearFeedback();
-          event.preventDefault();
-          return;
-        }
-
-        const previousInput = getPreviousInput(input);
-        if (previousInput) {
-          previousInput.focus();
-          previousInput.select();
-          event.preventDefault();
-        }
-        clearFeedback();
-        return;
-      }
-
-      if (event.key === 'ArrowRight') {
-        const nextInput = getNextInput(input);
-        if (nextInput) {
-          nextInput.focus();
-          nextInput.select();
-          event.preventDefault();
-        }
-        return;
-      }
-
-      if (event.key === 'ArrowLeft') {
-        const previousInput = getPreviousInput(input);
-        if (previousInput) {
-          previousInput.focus();
-          previousInput.select();
-          event.preventDefault();
-        }
-      }
+    const prev = getPreviousInput(input);
+    if (prev) {
+      prev.focus();
+      prev.select();
+      e.preventDefault();
     }
-
-    function createBoard() {
-      board.innerHTML = '';
-      allInputs.length = 0;
-      numberGroups.clear();
-
-      layout.forEach((row, rowIndex) => {
-        row.forEach((item, colIndex) => {
-          let element;
-
-          if (!item) {
-            element = document.createElement('div');
-            element.className = 'void';
-          } else if (item.type === 'block') {
-            element = document.createElement('div');
-            element.className = 'block';
-            element.textContent = item.label;
-          } else {
-            element = document.createElement('div');
-            element.className = 'cell' + (item.shaded ? ' shaded' : '');
-
-            if (item.number !== undefined) {
-              const mini = document.createElement('div');
-              mini.className = 'mini-number';
-              mini.textContent = item.number;
-              element.appendChild(mini);
-            }
-
-            const input = document.createElement('input');
-            input.type = 'text';
-            input.maxLength = 1;
-            input.autocomplete = 'off';
-            input.spellcheck = false;
-            input.dataset.row = String(rowIndex);
-            input.dataset.col = String(colIndex);
-            input.dataset.number = item.number !== undefined ? String(item.number) : '';
-            input.setAttribute('aria-label', `Vakje rij ${rowIndex + 1}, kolom ${colIndex + 1}`);
-
-            input.addEventListener('input', handleInput);
-            input.addEventListener('keydown', handleKeydown);
-
-            element.appendChild(input);
-            allInputs.push(input);
-
-            if (item.number !== undefined) {
-              if (!numberGroups.has(String(item.number))) {
-                numberGroups.set(String(item.number), []);
-              }
-              numberGroups.get(String(item.number)).push(input);
-            }
-          }
-
-          board.appendChild(element);
-        });
-      });
+    clearFeedback();
+    updateState();
+    return;
+  }
+  if (e.key === 'ArrowRight') {
+    const next = getNextInput(input);
+    if (next) {
+      next.focus();
+      next.select();
+      e.preventDefault();
     }
-
-    function getExpectedMap() {
-      const expected = new Map();
-
-      Object.entries(solutions).forEach(([clueNumber, word]) => {
-        const start = placements[clueNumber];
-        Array.from(word).forEach((char, index) => {
-          expected.set(`${start.row}-${start.col + index}`, char.toLowerCase());
-        });
-      });
-
-      return expected;
+  }
+  if (e.key === 'ArrowLeft') {
+    const prev = getPreviousInput(input);
+    if (prev) {
+      prev.focus();
+      prev.select();
+      e.preventDefault();
     }
-
-    function checkBoard() {
-      const expected = getExpectedMap();
-      let allCorrect = true;
-      let allFilled = true;
-
-      allInputs.forEach((input) => {
-        const key = `${input.dataset.row}-${input.dataset.col}`;
-        const answer = expected.get(key);
-        const value = input.value.toLowerCase();
-        const item = layout[Number(input.dataset.row)][Number(input.dataset.col)];
-
-        input.style.background = 'transparent';
-        input.style.color = '#1f2937';
-
-        if (!value) {
-          allFilled = false;
-        }
-
-        if (answer) {
-          if (value === answer) {
-            input.style.background = item && item.shaded ? 'rgba(22, 163, 74, 0.16)' : 'rgba(22, 163, 74, 0.10)';
-            input.style.color = '#166534';
-          } else {
-            allCorrect = false;
-            if (value) {
-              input.style.background = item && item.shaded ? 'rgba(220, 38, 38, 0.16)' : 'rgba(220, 38, 38, 0.10)';
-              input.style.color = '#991b1b';
-            }
-          }
-        }
-      });
-
-      secretWordInput.style.borderColor = '#cbd5e1';
-      secretMeaningInput.style.borderColor = '#cbd5e1';
-      secretWordInput.style.background = '#fff';
-      secretMeaningInput.style.background = '#fff';
-
-      const secretWordFilled = normalizeText(secretWordInput.value) !== '';
-      const secretMeaningFilled = normalizeText(secretMeaningInput.value) !== '';
-      const secretWordCorrect = isCorrectSecretWord(secretWordInput.value);
-      const secretMeaningCorrect = isCorrectSecretMeaning(secretMeaningInput.value);
-
-      if (!secretWordFilled || !secretMeaningFilled) {
-        allFilled = false;
-      }
-
-      if (secretWordFilled) {
-        if (secretWordCorrect) {
-          secretWordInput.style.borderColor = '#16a34a';
-          secretWordInput.style.background = 'rgba(22, 163, 74, 0.08)';
-        } else {
-          allCorrect = false;
-          secretWordInput.style.borderColor = '#dc2626';
-          secretWordInput.style.background = 'rgba(220, 38, 38, 0.08)';
-        }
-      }
-
-      if (secretMeaningFilled) {
-        if (secretMeaningCorrect) {
-          secretMeaningInput.style.borderColor = '#16a34a';
-          secretMeaningInput.style.background = 'rgba(22, 163, 74, 0.08)';
-        } else {
-          allCorrect = false;
-          secretMeaningInput.style.borderColor = '#dc2626';
-          secretMeaningInput.style.background = 'rgba(220, 38, 38, 0.08)';
-        }
-      }
-
-      if (!allFilled) {
-        feedback.textContent = 'Nog niet alles is ingevuld.';
-        feedback.className = 'feedback bad';
-      } else if (allCorrect) {
-        feedback.textContent = 'Goed gedaan! Alles klopt, ook de extra vraag. 🎉';
-        feedback.className = 'feedback good';
+  }
+}
+function renderTexts() {
+  introText.textContent = currentData.intro;
+  cluesLeft.innerHTML = currentData.cluesLeft.map(function(clue) { return '<div>' + clue + '</div>'; }).join('');
+  cluesRight.innerHTML = currentData.cluesRight.map(function(clue) { return '<div>' + clue + '</div>'; }).join('');
+  secretWordLabel.textContent = currentData.secretWordLabel;
+  secretMeaningLabel.textContent = currentData.secretMeaningLabel;
+}
+function buildBoard() {
+  board.innerHTML = '';
+  inputs.length = 0;
+  numberGroups.clear();
+  const rows = currentData.layout.length;
+  const cols = Math.max.apply(null, currentData.layout.map(function(row) { return row.length; }));
+  const size = window.innerWidth <= 900 ? 52 : 68;
+  board.style.gridTemplateColumns = 'repeat(' + cols + ', ' + size + 'px)';
+  board.style.gridTemplateRows = 'repeat(' + rows + ', ' + size + 'px)';
+  currentData.layout.forEach(function(row, r) {
+    row.forEach(function(item, c) {
+      let el = document.createElement('div');
+      if (!item) {
+        el.className = 'void';
+      } else if (item.type === 'block') {
+        el.className = 'block';
+        el.textContent = item.label;
       } else {
-        feedback.textContent = 'Er zitten nog een paar foutjes in. Kijk ook naar de extra vraag onderaan.';
-        feedback.className = 'feedback bad';
+        el.className = 'cell' + (item.shaded ? ' shaded' : '');
+        if (item.number !== undefined) {
+          const n = document.createElement('div');
+          n.className = 'mini-number';
+          n.textContent = item.number;
+          el.appendChild(n);
+        }
+        const inp = document.createElement('input');
+        inp.type = 'text';
+        inp.maxLength = 1;
+        inp.autocomplete = 'off';
+        inp.spellcheck = false;
+        inp.dataset.row = String(r);
+        inp.dataset.col = String(c);
+        inp.dataset.number = item.number !== undefined ? String(item.number) : '';
+        inp.addEventListener('input', handleInput);
+        inp.addEventListener('keydown', handleKeydown);
+        el.appendChild(inp);
+        inputs.push(inp);
+        if (item.number !== undefined) {
+          if (!numberGroups.has(String(item.number))) numberGroups.set(String(item.number), []);
+          numberGroups.get(String(item.number)).push(inp);
+        }
+      }
+      board.appendChild(el);
+    });
+  });
+  updateState();
+}
+function getExpectedMap() {
+  const expected = new Map();
+  Object.entries(currentData.solutions).forEach(function(entry) {
+    const clueNumber = entry[0];
+    const word = entry[1];
+    const start = currentData.placements[clueNumber];
+    Array.from(word).forEach(function(char, index) {
+      expected.set(String(start.row) + '-' + String(start.col + index), char.toLowerCase());
+    });
+  });
+  return expected;
+}
+function checkAnswers() {
+  const expected = getExpectedMap();
+  let allCorrect = true;
+  let allFilled = true;
+  inputs.forEach(function(input) {
+    const key = input.dataset.row + '-' + input.dataset.col;
+    const answer = expected.get(key);
+    const value = input.value.toLowerCase();
+    input.style.background = 'transparent';
+    input.style.color = '#1f2937';
+    if (!value) allFilled = false;
+    if (answer) {
+      if (value === answer) {
+        input.style.background = 'rgba(22,163,74,.10)';
+        input.style.color = '#166534';
+      } else {
+        allCorrect = false;
+        if (value) {
+          input.style.background = 'rgba(220,38,38,.10)';
+          input.style.color = '#991b1b';
+        }
       }
     }
-
-    function resetBoard() {
-      allInputs.forEach((input) => {
-        input.value = '';
-        input.style.background = 'transparent';
-        input.style.color = '#1f2937';
-      });
-
-      secretWordInput.value = '';
-      secretMeaningInput.value = '';
-      secretWordInput.style.borderColor = '#cbd5e1';
-      secretMeaningInput.style.borderColor = '#cbd5e1';
-      secretWordInput.style.background = '#fff';
-      secretMeaningInput.style.background = '#fff';
-
-      clearFeedback();
-      if (allInputs[0]) {
-        allInputs[0].focus();
-      }
+  });
+  const secretWordValue = normalizeText(secretWord.value);
+  const secretMeaningValue = normalizeText(secretMeaning.value);
+  const secretWordCorrect = currentData.secretWordAnswers.includes(secretWordValue);
+  const secretMeaningCorrect = currentData.secretMeaningAnswers.includes(secretMeaningValue);
+  secretWord.style.borderColor = '#cbd5e1';
+  secretMeaning.style.borderColor = '#cbd5e1';
+  secretWord.style.background = '#fff';
+  secretMeaning.style.background = '#fff';
+  if (!secretWordValue || !secretMeaningValue) allFilled = false;
+  if (secretWordValue) {
+    if (secretWordCorrect) {
+      secretWord.style.borderColor = '#16a34a';
+      secretWord.style.background = 'rgba(22,163,74,.08)';
+    } else {
+      allCorrect = false;
+      secretWord.style.borderColor = '#dc2626';
+      secretWord.style.background = 'rgba(220,38,38,.08)';
     }
-
-    function runSelfTests() {
-      console.assert(normalizeLetter('A') === 'a', 'Test mislukt: hoofdletter normaliseren');
-      console.assert(normalizeLetter('é') === 'é', 'Test mislukt: accent bewaren');
-      console.assert(normalizeLetter('ab') === 'a', 'Test mislukt: slechts 1 letter toelaten');
-      console.assert(normalizeLetter('1!b') === 'b', 'Test mislukt: niet-letters verwijderen');
-
-      const expected = getExpectedMap();
-      console.assert(expected.get('0-6') === 'a', 'Test mislukt: woord 1 startpositie');
-      console.assert(expected.get('8-15') === 'e', 'Test mislukt: laatste letter incroyable');
-      console.assert(expected.get('7-1') === 'b', 'Test mislukt: woord 8 startpositie');
-
-      console.assert(isCorrectSecretWord('après midi') === true, 'Test mislukt: après midi accepteren');
-      console.assert(isCorrectSecretWord('apres-midi') === true, 'Test mislukt: apres-midi accepteren');
-      console.assert(isCorrectSecretWord('matin') === false, 'Test mislukt: fout verborgen woord afwijzen');
-      console.assert(isCorrectSecretMeaning('de middag') === true, 'Test mislukt: de middag accepteren');
-      console.assert(isCorrectSecretMeaning('middag') === true, 'Test mislukt: middag accepteren');
-      console.assert(isCorrectSecretMeaning('de ochtend') === false, 'Test mislukt: foute betekenis afwijzen');
+  }
+  if (secretMeaningValue) {
+    if (secretMeaningCorrect) {
+      secretMeaning.style.borderColor = '#16a34a';
+      secretMeaning.style.background = 'rgba(22,163,74,.08)';
+    } else {
+      allCorrect = false;
+      secretMeaning.style.borderColor = '#dc2626';
+      secretMeaning.style.background = 'rgba(220,38,38,.08)';
     }
-
-    secretWordInput.addEventListener('input', clearFeedback);
-    secretMeaningInput.addEventListener('input', clearFeedback);
-    document.getElementById('checkBtn').addEventListener('click', checkBoard);
-    document.getElementById('resetBtn').addEventListener('click', resetBoard);
-
-    createBoard();
-    runSelfTests();
-  </script>
+  }
+  if (!allFilled) {
+    feedback.textContent = 'Nog niet alles is ingevuld.';
+    feedback.className = 'feedback bad';
+  } else if (allCorrect) {
+    feedback.textContent = 'Goed gedaan! Alles klopt, ook de extra vraag. 🎉';
+    feedback.className = 'feedback good';
+  } else {
+    feedback.textContent = 'Er zitten nog een paar foutjes in. Kijk nog eens goed.';
+    feedback.className = 'feedback bad';
+  }
+}
+function resetExercise() {
+  inputs.forEach(function(input) {
+    input.value = '';
+    input.style.background = 'transparent';
+    input.style.color = '#1f2937';
+  });
+  secretWord.value = '';
+  secretMeaning.value = '';
+  secretWord.style.borderColor = '#cbd5e1';
+  secretMeaning.style.borderColor = '#cbd5e1';
+  secretWord.style.background = '#fff';
+  secretMeaning.style.background = '#fff';
+  clearFeedback();
+  updateState();
+  if (inputs[0]) inputs[0].focus();
+}
+function showExercise(level) {
+  currentData = level === 'hard' ? hardData : easyData;
+  renderTexts();
+  startScreen.classList.add('hidden');
+  exerciseScreen.classList.remove('hidden');
+  buildBoard();
+  resetExercise();
+}
+function showStartScreen() {
+  exerciseScreen.classList.add('hidden');
+  startScreen.classList.remove('hidden');
+  clearFeedback();
+}
+window.addEventListener('resize', function() {
+  if (!exerciseScreen.classList.contains('hidden')) {
+    buildBoard();
+    resetExercise();
+  }
+});
+document.getElementById('easyBtn').addEventListener('click', function() { showExercise('easy'); });
+document.getElementById('hardBtn').addEventListener('click', function() { showExercise('hard'); });
+document.getElementById('backBtn').addEventListener('click', showStartScreen);
+secretWord.addEventListener('input', function() { clearFeedback(); updateState(); });
+secretMeaning.addEventListener('input', function() { clearFeedback(); updateState(); });
+checkBtn.addEventListener('click', checkAnswers);
+resetBtn.addEventListener('click', resetExercise);
+</script>
 </body>
 </html>
